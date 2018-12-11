@@ -1,0 +1,27 @@
+# parsing_fasta.py
+# For this exercise the pseudo-code is required (in this same file) 
+# Write a script that:
+# a) Reads sprot_prot.fasta line by line
+# b) Copies to a new file ONLY the record(s) that are not from Homo sapiens
+# b) And prints their source organism and sequence lenght 
+# Use separate functions for the input and the output 
+
+'''
+Pseudo-code:
+ '''
+
+def read_file(fastafile):
+	fasta= open(fastafile, 'r')
+	new_fasta = open('new_fasta.txt', 'w')
+	l= fasta.readlines()
+	n = -1
+	for line in l:
+		n+= 1
+		if line[0] == '>':
+			exp = line
+			seq = l[n+1]
+			result = exp + '\n' + seq
+			findHome = exp.find('Homo sapiens')
+			if findHome != -1:
+				new_fasta.write(result)exit
+print(read_file('fastafileex.txt'))
